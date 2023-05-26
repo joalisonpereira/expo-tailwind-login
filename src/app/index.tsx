@@ -1,12 +1,15 @@
-import { Text, View } from "react-native";
-import { Link } from "expo-router";
+import { ActivityIndicator, View } from "react-native";
+import colors from "tailwindcss/colors";
+import { useRehydrateAuth } from "../hooks/useRehydrateAuth";
 
-export default function App() {
+function Init() {
+  useRehydrateAuth();
+
   return (
-    <View className="flex-1 justify-center items-center bg-black">
-      <Text className="font-bold text-white">
-        <Link href="/home">Go to home</Link>
-      </Text>
+    <View className="flex-1 justify-center items-center">
+      <ActivityIndicator size="small" color={colors.white} />
     </View>
   );
 }
+
+export default Init;
